@@ -13,6 +13,9 @@
 		810785D31AE5C6F700F25F45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 810785D21AE5C6F700F25F45 /* Images.xcassets */; };
 		810785D61AE5C6F700F25F45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810785D41AE5C6F700F25F45 /* LaunchScreen.xib */; };
 		810785E21AE5C6F700F25F45 /* SwiftSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810785E11AE5C6F700F25F45 /* SwiftSQLiteTests.swift */; };
+		810785EC1AE5C8A900F25F45 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 810785EB1AE5C8A900F25F45 /* libsqlite3.dylib */; };
+		810785F11AE5CAC100F25F45 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810785F01AE5CAC100F25F45 /* SwiftData.swift */; };
+		810785F31AE5CB5100F25F45 /* DataMngr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810785F21AE5CB5100F25F45 /* DataMngr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 		810785DB1AE5C6F700F25F45 /* SwiftSQLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSQLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		810785E01AE5C6F700F25F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		810785E11AE5C6F700F25F45 /* SwiftSQLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSQLiteTests.swift; sourceTree = "<group>"; };
+		810785EB1AE5C8A900F25F45 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		810785ED1AE5C90200F25F45 /* SwiftSQLite-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftSQLite-BridgeHeader.h"; sourceTree = "<group>"; };
+		810785F01AE5CAC100F25F45 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
+		810785F21AE5CB5100F25F45 /* DataMngr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMngr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810785EC1AE5C8A900F25F45 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,7 @@
 		810785BD1AE5C6F700F25F45 = {
 			isa = PBXGroup;
 			children = (
+				810785EB1AE5C8A900F25F45 /* libsqlite3.dylib */,
 				810785C81AE5C6F700F25F45 /* SwiftSQLite */,
 				810785DE1AE5C6F700F25F45 /* SwiftSQLiteTests */,
 				810785C71AE5C6F700F25F45 /* Products */,
@@ -77,12 +86,15 @@
 		810785C81AE5C6F700F25F45 /* SwiftSQLite */ = {
 			isa = PBXGroup;
 			children = (
+				810785F01AE5CAC100F25F45 /* SwiftData.swift */,
+				810785F21AE5CB5100F25F45 /* DataMngr.swift */,
 				810785CB1AE5C6F700F25F45 /* AppDelegate.swift */,
 				810785CD1AE5C6F700F25F45 /* ViewController.swift */,
 				810785CF1AE5C6F700F25F45 /* Main.storyboard */,
 				810785D21AE5C6F700F25F45 /* Images.xcassets */,
 				810785D41AE5C6F700F25F45 /* LaunchScreen.xib */,
 				810785C91AE5C6F700F25F45 /* Supporting Files */,
+				810785ED1AE5C90200F25F45 /* SwiftSQLite-BridgeHeader.h */,
 			);
 			path = SwiftSQLite;
 			sourceTree = "<group>";
@@ -213,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				810785CE1AE5C6F700F25F45 /* ViewController.swift in Sources */,
+				810785F11AE5CAC100F25F45 /* SwiftData.swift in Sources */,
 				810785CC1AE5C6F700F25F45 /* AppDelegate.swift in Sources */,
+				810785F31AE5CB5100F25F45 /* DataMngr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +359,7 @@
 				INFOPLIST_FILE = SwiftSQLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSQLite/SwiftSQLite-BridgeHeader.h";
 			};
 			name = Debug;
 		};
@@ -355,6 +370,7 @@
 				INFOPLIST_FILE = SwiftSQLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSQLite/SwiftSQLite-BridgeHeader.h";
 			};
 			name = Release;
 		};
