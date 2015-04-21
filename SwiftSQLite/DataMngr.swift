@@ -40,8 +40,9 @@ class DataMngr{
 
     func createTable()->Bool {
         var result:Bool = false
-        let error = SwiftData.createTable(TABLE_NAME, withColumnNamesAndTypes: ["date":SwiftData.DataType.DateVal, "waitMorning":SwiftData.DataType.DoubleVal, "waitEvening":SwiftData.DataType.DoubleVal, "bodyFatPercentageMorning":SwiftData.DataType.DoubleVal, "bodyFatPercentageEvening":SwiftData.DataType.DoubleVal])
-        if error == 0 {
+        if let error = SwiftData.createTable(TABLE_NAME, withColumnNamesAndTypes: ["date":SwiftData.DataType.DateVal, "weightMorning":SwiftData.DataType.DoubleVal, "weightEvening":SwiftData.DataType.DoubleVal, "bodyFatPercentageMorning":SwiftData.DataType.DoubleVal, "bodyFatPercentageEvening":SwiftData.DataType.DoubleVal]) {
+            result = false
+        }else{
             result = true
         }
         return result
@@ -61,7 +62,7 @@ class DataMngr{
     
     func update(datas:Dictionary<String,Any>, targetDate date:NSDate)->Bool {
         var result:Bool = false
-        var sql = "UPDATE "+TABLE_NAME+" set = "
+        var sql = "UPDATE "+TABLE_NAME+" set "
         let keyArray = Array(datas.keys)
         for key in keyArray {
             sql += key+" = ? ,"
@@ -79,12 +80,32 @@ class DataMngr{
             args.append(value as! AnyObject)
         }
         args.append(date)
-        if let error = SwiftData.executeChange(sql, withArgs: args) {
+        if let error = SwiftData.executeChange(newSql, withArgs: args) {
             let message = SwiftData.errorMessageForCode(error)
             println(message)
         }else{
             result = true
         }
         return result
+    }
+    
+    func selectAll()->[Dictionary<String,Any>] {
+        let sql = "select * from "+TABLE_NAME+" order by date asc;"
+        var results:[Dictionary<String,Any>] = []
+        let (fetchDatas,error) = SwiftData.executeQuery(sql)
+        if error != nil {
+            let message = SwiftData.errorMessageForCode(error!)
+            println(message)
+        }else{
+            for row in fetchDatas {
+                let date:NSDate? = row["date"]?.asDate()
+                let weightMorning:Double? = row["weightMorning"]?.asDouble()
+                let weightEvening:Double? = row["weightEvening"]?.asDouble()
+                let bodyFatPercentageMorning:Double? = row["bodyFatPercentageMorning"]?.asDouble()
+                let bodyFatPercentageEvening:Double? = row["bodyFatPercentageEvening"]?.asDouble()
+                results.append(["date":date, "weightMorning":weightMorning, "weightEvening":weightEvening, "bodyFatPercentageMorning":bodyFatPercentageMorning, "bodyFatPercentageEvening":bodyFatPercentageEvening])
+            }
+        }
+        return results
     }
 }

@@ -10,6 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func buttonPushed(sender: AnyObject) {
+        let dataManager:DataMngr = DataMngr.sharedInstance
+        let today:NSDate = NSDate()
+        dataManager.add(today)
+        let columnDatas:Dictionary<String,Any> = ["weightMorning":95.50, "bodyFatPercentageMorning":33.5]
+        let result = dataManager.update(columnDatas, targetDate: today)
+        
+        let fetchDatas:[Dictionary<String,Any>] = dataManager.selectAll()
+        for dict in fetchDatas {
+            println("dict:"+dict.description)
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
