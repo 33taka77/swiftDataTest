@@ -117,33 +117,45 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="173" id="dX5-gg-oxT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="kyt-W0-MYr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kyt-W0-MYr" id="1iF-SP-odo">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Expanded" rowHeight="132" id="dX5-gg-oxT">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dX5-gg-oxT" id="sJM-1h-T2x">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLp-mX-DFN">
-                                                    <rect key="frame" x="125" y="11" width="350" height="180"/>
+                                                    <rect key="frame" x="225" y="-20" width="150" height="162"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="8wH-3q-MJI"/>
-                                                        <constraint firstAttribute="width" constant="350" id="ql0-Md-VPT"/>
+                                                        <constraint firstAttribute="height" constant="100" id="8wH-3q-MJI"/>
+                                                        <constraint firstAttribute="width" constant="150" id="ql0-Md-VPT"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="dataSource" destination="DKd-go-gqP" id="Jsu-Kn-1AU"/>
                                                         <outlet property="delegate" destination="DKd-go-gqP" id="Y1q-X4-0yQ"/>
                                                     </connections>
                                                 </pickerView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHT-xd-dhE">
+                                                    <rect key="frame" x="410" y="50" width="22" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="oeb-O9-QVK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="kHT-xd-dhE" firstAttribute="top" secondItem="sJM-1h-T2x" secondAttribute="topMargin" constant="42" id="Biw-L5-O1H"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kHT-xd-dhE" secondAttribute="bottom" constant="52" id="FEA-Fe-uCR"/>
                                                 <constraint firstItem="yLp-mX-DFN" firstAttribute="top" secondItem="sJM-1h-T2x" secondAttribute="topMargin" constant="3" id="UCB-T1-u7A"/>
+                                                <constraint firstItem="kHT-xd-dhE" firstAttribute="leading" secondItem="yLp-mX-DFN" secondAttribute="trailing" constant="35" id="esY-f9-yOZ"/>
                                                 <constraint firstAttribute="centerX" secondItem="yLp-mX-DFN" secondAttribute="centerX" id="nYe-SV-ARN"/>
                                             </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="kyt-W0-MYr">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kyt-W0-MYr" id="1iF-SP-odo">
-                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

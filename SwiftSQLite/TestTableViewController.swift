@@ -29,10 +29,17 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
         for var j:Int = 0; j < 99;j++ {
             if j % 5 == 0 {
                 let tmpStr:String = String(format:"%d",j)
-                let str = "." + tmpStr
-                listOfPickerItem2.append(str)
+                if j == 0 || j == 5 {
+                    let str = ".0" + tmpStr
+                    listOfPickerItem2.append(str)
+                }else{
+                    let str = "." + tmpStr
+                    listOfPickerItem2.append(str)
+                }
             }
         }
+        self.dataPicker.hidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +61,52 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
         return 3
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if self.isExpandCell(tableView, atIndexPath: indexPath) {
+            let cell:UITableViewCell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+            if cell.tag == 0 {
+                return 0
+            }else{
+                return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+            }
+        }
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let expandIndex:NSIndexPath = NSIndexPath(forRow: indexPath.row+1, inSection: indexPath.section)
+        if self.isExpandCell(tableView, atIndexPath: expandIndex) {
+            tableView.beginUpdates()
+            self.togglePicker(tableView, atIndexPath: indexPath)
+            tableView.endUpdates()
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func isExpandCell(tableView: UITableView, atIndexPath index:NSIndexPath)->Bool {
+        let cell:UITableViewCell = super.tableView(tableView, cellForRowAtIndexPath: index)
+        let isExpand:Bool = cell.reuseIdentifier == "Expanded"
+        return isExpand
+    }
+    func togglePicker(tableView: UITableView, atIndexPath index:NSIndexPath) {
+        let cell:UITableViewCell = super.tableView(tableView, cellForRowAtIndexPath: index)
+        cell.tag = ~cell.tag
+        /*
+        if cell.tag == 0 {
+            cell.tag = 1
+        }else{
+            cell.tag = 0
+        }
+        */
+        self.dataPicker.hidden = !self.dataPicker.hidden
+        /*
+        for view:UIView in cell.contentView.subviews {
+            if self.dataPicker == view {
+                self.dataPicker.hidden = !self.dataPicker.hidden
+            }
+        }
+        */
+    }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
@@ -110,11 +163,11 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
     */
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return 10//listOfPickerItem1.count
+            return listOfPickerItem1.count
         }else if component == 1 {
             return listOfPickerItem2.count
         }
@@ -124,7 +177,7 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
         var titleStr:String?
         switch component {
         case 0:
-            titleStr = "test"//listOfPickerItem1[row]
+            titleStr = listOfPickerItem1[row]
         case 1:
             titleStr = listOfPickerItem2[row]
         default:
@@ -135,9 +188,19 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
-        let label = UILabel(frame: CGRectMake(0, 0, pickerView.frame.width, 44))
+        let label = UILabel(frame: CGRectMake(0, 0, pickerView.frame.width/2.0, 44))
         label.textAlignment = NSTextAlignment.Center
-        label.text = "Test"
+        var titleStr:String?
+        switch component {
+        case 0:
+            titleStr = listOfPickerItem1[row]
+        case 1:
+            titleStr = listOfPickerItem2[row]
+        default:
+            println("error")
+            titleStr = nil
+        }
+        label.text = titleStr
         return label
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
