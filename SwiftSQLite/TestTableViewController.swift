@@ -133,6 +133,13 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
         }
         return title
     }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        let label = UILabel(frame: CGRectMake(0, 0, pickerView.frame.width, 44))
+        label.textAlignment = NSTextAlignment.Center
+        label.text = "Test"
+        return label
+    }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectRowIndex = pickerView.selectedRowInComponent(component)
     }
