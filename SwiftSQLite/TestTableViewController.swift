@@ -77,7 +77,7 @@ class TestTableViewController: UITableViewController,UIPickerViewDataSource,UIPi
         let expandIndex:NSIndexPath = NSIndexPath(forRow: indexPath.row+1, inSection: indexPath.section)
         if self.isExpandCell(tableView, atIndexPath: expandIndex) {
             tableView.beginUpdates()
-            self.togglePicker(tableView, atIndexPath: indexPath)
+            self.togglePicker(tableView, atIndexPath: expandIndex)
             tableView.endUpdates()
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
