@@ -56,7 +56,7 @@ class MainViewController: UIViewController,UICollectionViewDelegateFlowLayout,UI
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:MainCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("MainCollectionCell", forIndexPath: indexPath) as! MainCollectionViewCell
         cell.setupCell( dataSourceArray[indexPath.row])
-
+        println("cellForTtemAtIndex: \(indexPath.row)")
         return cell as UICollectionViewCell
     }
     
@@ -68,7 +68,7 @@ class MainViewController: UIViewController,UICollectionViewDelegateFlowLayout,UI
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.bounds.width
-
+        var flag:Bool = false
         if page > pageIndex {
             if( page == CGFloat(dataSourceArray.count-2) ) {
                 let str:String = String(format:"%d",dataSourceArray.count)
@@ -78,13 +78,17 @@ class MainViewController: UIViewController,UICollectionViewDelegateFlowLayout,UI
             if( page < 4) {
                 let str:String = String(format:"%d",dataSourceArray.count)
                 dataSourceArray.insert(str, atIndex: 0)
+                flag = true
             }
         }
         pageIndex = page
         self.collectionView.reloadData()
         
-        //let index:NSIndexPath! = NSIndexPath(forItem: Int(pageIndex), inSection: 0)
-        //self.collectionView.scrollToItemAtIndexPath(index, atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
+        if flag {
+            let index:NSIndexPath! = NSIndexPath(forItem: Int(pageIndex+1), inSection: 0)
+            self.collectionView.scrollToItemAtIndexPath(index, atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+        }
+        
     }
 
 }

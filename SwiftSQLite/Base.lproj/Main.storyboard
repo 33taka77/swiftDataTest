@@ -55,8 +55,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pyU-Yx-PCv">
-                                <rect key="frame" x="0.0" y="-11" width="600" height="611"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pyU-Yx-PCv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zA2-Na-hYI">
                                     <size key="itemSize" width="605" height="563"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -139,6 +139,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYx-Uw-aUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050" y="1081"/>
+        </scene>
+        <!--Calender-->
+        <scene sceneID="iMl-sA-S57">
+            <objects>
+                <viewController id="RhH-TO-oir" customClass="CalenderViewController" customModule="SwiftSQLite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9eK-NI-h4C"/>
+                        <viewControllerLayoutGuide type="bottom" id="ucQ-vH-7Sh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qmd-zm-sVe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hm6-RR-RwX">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" red="0.0035174162395078899" green="0.10649139661669747" blue="0.6595841224747474" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="77X-OK-7i0">
+                                    <size key="itemSize" width="126" height="129"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalenderCell" id="gCj-gg-zgY" customClass="CalenderCollectionViewCell" customModule="SwiftSQLite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="126" height="129"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-9W-yp8">
+                                                    <rect key="frame" x="42" y="15" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="Fuv-Fj-7hb"/>
+                                                        <constraint firstAttribute="height" constant="21" id="nyF-ju-B9R"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.13755986608312304" green="0.55349062638673086" blue="0.7772056502525253" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="a8s-9W-yp8" firstAttribute="top" secondItem="gCj-gg-zgY" secondAttribute="topMargin" constant="7" id="NIn-Ot-hn6"/>
+                                            <constraint firstAttribute="centerX" secondItem="a8s-9W-yp8" secondAttribute="centerX" id="bGh-Jf-wcI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="a8s-9W-yp8" id="IiV-6O-BZ5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="RhH-TO-oir" id="4wp-6D-cRk"/>
+                                    <outlet property="delegate" destination="RhH-TO-oir" id="ePM-Pc-8cj"/>
+                                </connections>
+                            </collectionView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQ9-pG-K9G">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6RP-CN-5We"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="JNp-dS-MME">
+                                        <barButtonItem key="leftBarButtonItem" title="Prev" id="zZZ-js-Op5">
+                                            <connections>
+                                                <action selector="pushPrevButton:" destination="RhH-TO-oir" id="5Aw-Gz-uhZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="r1O-4r-fBX">
+                                            <connections>
+                                                <action selector="pushNextButton:" destination="RhH-TO-oir" id="D6G-Ux-JST"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hm6-RR-RwX" firstAttribute="top" secondItem="lQ9-pG-K9G" secondAttribute="bottom" id="7Vu-1Y-zCh"/>
+                            <constraint firstItem="lQ9-pG-K9G" firstAttribute="top" secondItem="qmd-zm-sVe" secondAttribute="topMargin" id="MsP-Bn-GTn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hm6-RR-RwX" secondAttribute="trailing" constant="-16" id="N8N-rY-aI2"/>
+                            <constraint firstItem="hm6-RR-RwX" firstAttribute="leading" secondItem="qmd-zm-sVe" secondAttribute="leadingMargin" constant="-16" id="T13-3S-Nhw"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="hm6-RR-RwX" secondAttribute="bottom" id="lCh-wH-8t1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lQ9-pG-K9G" secondAttribute="trailing" constant="-16" id="oxu-lO-rXZ"/>
+                            <constraint firstItem="lQ9-pG-K9G" firstAttribute="leading" secondItem="qmd-zm-sVe" secondAttribute="leadingMargin" constant="-16" id="rzV-CE-Swx"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Calender" id="n2a-f2-tPh"/>
+                    <connections>
+                        <outlet property="collectionView" destination="hm6-RR-RwX" id="fxp-yb-Ybk"/>
+                        <outlet property="navBar" destination="JNp-dS-MME" id="98z-jJ-ktL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQs-3r-ltD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="1820"/>
         </scene>
         <!--View3-->
         <scene sceneID="pxM-cF-RRJ">
@@ -267,11 +366,12 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="4Qy-Xy-tF1"/>
                         <segue destination="uzZ-fg-wxS" kind="relationship" relationship="viewControllers" id="rW7-ab-hs9"/>
                         <segue destination="DKd-go-gqP" kind="relationship" relationship="viewControllers" id="44B-ii-ZRL"/>
+                        <segue destination="RhH-TO-oir" kind="relationship" relationship="viewControllers" id="PSV-cX-tbF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Oj-d5-rQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="337"/>
+            <point key="canvasLocation" x="277" y="337"/>
         </scene>
     </scenes>
 </document>
