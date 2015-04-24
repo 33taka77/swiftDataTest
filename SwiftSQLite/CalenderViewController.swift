@@ -37,8 +37,17 @@ class CalenderViewController: UIViewController,UICollectionViewDelegateFlowLayou
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.collectionView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        let barHeight:CGFloat = 44
+        self.collectionView.frame = CGRectMake(0,barHeight,self.view.frame.width, self.view.frame.height-barHeight)
     }
 
+    override func viewDidLayoutSubviews() {
+        let obj:AnyObject = NSDate()
+        self.pushNextButton(obj)
+        self.pushPrevButton(obj)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,6 +75,11 @@ class CalenderViewController: UIViewController,UICollectionViewDelegateFlowLayou
         let rangeOfWeek:NSRange = NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.CalendarUnitWeekOfMonth, inUnit: NSCalendarUnit.CalendarUnitMonth, forDate: currentDay)
         let count = rangeOfWeek.length * 7
         
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "YYYY/MM"
+        let str:String = formatter.stringFromDate(currentDay)
+        navBar.title = str
+        
         return count
     }
 
@@ -75,7 +89,8 @@ class CalenderViewController: UIViewController,UICollectionViewDelegateFlowLayou
         return cell as UICollectionViewCell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width:CGFloat = (self.collectionView.bounds.width - margin*8)/7
+        let w:CGFloat = self.collectionView.frame.width
+        let width:CGFloat = (w - margin*8)/7
         let height:CGFloat = width*1.5
         return CGSizeMake(width, height)
     }
