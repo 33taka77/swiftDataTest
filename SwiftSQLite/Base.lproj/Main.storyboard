@@ -352,6 +352,50 @@
             </objects>
             <point key="canvasLocation" x="252" y="1145"/>
         </scene>
+        <!--Graph-->
+        <scene sceneID="Dvf-Oq-Ayh">
+            <objects>
+                <viewController id="XAs-Sn-NgH" customClass="GraphViewController" customModule="SwiftSQLite" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OZ9-5I-7IW"/>
+                        <viewControllerLayoutGuide type="bottom" id="7db-L1-RQ9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c1F-hn-d6f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3Z-Pn-V1f" customClass="SmartGraph" customModule="SwiftSQLite" customModuleProvider="target">
+                                <rect key="frame" x="16" y="100" width="568" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="2UR-9L-nX3"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="1" green="0.69767643790518463" blue="0.1306950688216123" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="1" green="0.32596779254487973" blue="0.13521405485645965" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="j3Z-Pn-V1f" secondAttribute="centerY" id="0xs-ea-EQM"/>
+                            <constraint firstItem="j3Z-Pn-V1f" firstAttribute="leading" secondItem="c1F-hn-d6f" secondAttribute="leadingMargin" id="8gu-D1-8yc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j3Z-Pn-V1f" secondAttribute="trailing" id="M14-02-a1f"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Graph" id="hZ4-r4-sOx"/>
+                    <connections>
+                        <outlet property="graphView" destination="j3Z-Pn-V1f" id="Twy-R4-iyV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58f-aV-nVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="1834"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kHN-MS-GSF">
             <objects>
@@ -367,6 +411,7 @@
                         <segue destination="uzZ-fg-wxS" kind="relationship" relationship="viewControllers" id="rW7-ab-hs9"/>
                         <segue destination="DKd-go-gqP" kind="relationship" relationship="viewControllers" id="44B-ii-ZRL"/>
                         <segue destination="RhH-TO-oir" kind="relationship" relationship="viewControllers" id="PSV-cX-tbF"/>
+                        <segue destination="XAs-Sn-NgH" kind="relationship" relationship="viewControllers" id="8Xh-su-f8V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Oj-d5-rQG" userLabel="First Responder" sceneMemberID="firstResponder"/>

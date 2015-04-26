@@ -19,6 +19,8 @@
 		8190C7B11AE733E700C2ED4A /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8190C7B01AE733E700C2ED4A /* TestTableViewController.swift */; };
 		8190C7B31AE87D6000C2ED4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8190C7B21AE87D6000C2ED4A /* MainViewController.swift */; };
 		8190C7B51AE8850D00C2ED4A /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8190C7B41AE8850D00C2ED4A /* MainCollectionViewCell.swift */; };
+		F957CC5D1AEC84AB00942CAC /* SmartGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957CC5C1AEC84AB00942CAC /* SmartGraph.swift */; };
+		F957CC5F1AEC866B00942CAC /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957CC5E1AEC866B00942CAC /* GraphViewController.swift */; };
 		F9A9B77C1AE919F90068AA50 /* CalenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9B77B1AE919F90068AA50 /* CalenderCollectionViewCell.swift */; };
 		F9F8C8811AE91182000C7436 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F8C8801AE91182000C7436 /* CalenderViewController.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		8190C7B01AE733E700C2ED4A /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
 		8190C7B21AE87D6000C2ED4A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8190C7B41AE8850D00C2ED4A /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		F957CC5C1AEC84AB00942CAC /* SmartGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartGraph.swift; sourceTree = "<group>"; };
+		F957CC5E1AEC866B00942CAC /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		F9A9B77B1AE919F90068AA50 /* CalenderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9F8C8801AE91182000C7436 /* CalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,11 +100,13 @@
 		810785C81AE5C6F700F25F45 /* SwiftSQLite */ = {
 			isa = PBXGroup;
 			children = (
+				F957CC5C1AEC84AB00942CAC /* SmartGraph.swift */,
 				810785F01AE5CAC100F25F45 /* SwiftData.swift */,
 				810785F21AE5CB5100F25F45 /* DataMngr.swift */,
 				810785CB1AE5C6F700F25F45 /* AppDelegate.swift */,
 				810785CD1AE5C6F700F25F45 /* ViewController.swift */,
 				810785CF1AE5C6F700F25F45 /* Main.storyboard */,
+				F957CC5E1AEC866B00942CAC /* GraphViewController.swift */,
 				F9F8C8801AE91182000C7436 /* CalenderViewController.swift */,
 				F9A9B77B1AE919F90068AA50 /* CalenderCollectionViewCell.swift */,
 				8190C7B21AE87D6000C2ED4A /* MainViewController.swift */,
@@ -243,9 +249,11 @@
 				810785CE1AE5C6F700F25F45 /* ViewController.swift in Sources */,
 				8190C7B11AE733E700C2ED4A /* TestTableViewController.swift in Sources */,
 				810785F11AE5CAC100F25F45 /* SwiftData.swift in Sources */,
+				F957CC5D1AEC84AB00942CAC /* SmartGraph.swift in Sources */,
 				F9F8C8811AE91182000C7436 /* CalenderViewController.swift in Sources */,
 				8190C7B31AE87D6000C2ED4A /* MainViewController.swift in Sources */,
 				F9A9B77C1AE919F90068AA50 /* CalenderCollectionViewCell.swift in Sources */,
+				F957CC5F1AEC866B00942CAC /* GraphViewController.swift in Sources */,
 				810785CC1AE5C6F700F25F45 /* AppDelegate.swift in Sources */,
 				810785F31AE5CB5100F25F45 /* DataMngr.swift in Sources */,
 			);
